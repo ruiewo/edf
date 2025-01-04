@@ -1,0 +1,42 @@
+[
+  {
+    "fileName": "TIKYUU6_VOICE_JA_16333.mp3",
+    "text": "ナイスだ!",
+    "keyword": ["nice"]
+  },
+  {
+    "fileName": "TIKYUU6_VOICE_JA_16345.mp3",
+    "text": "イエッサー!",
+    "keyword": ["yessa"]
+  },
+  {
+    "fileName": "TIKYUU6_VOICE_JA_16376.mp3",
+    "text": "すまない",
+    "keyword": ["sumanai"]
+  },
+  {
+    "fileName": "TIKYUU6_VOICE_JA_16481.mp3",
+    "text": "ありがとよ",
+    "keyword": ["arigatoyo", "thankyou"]
+  },
+  {
+    "fileName": "TIKYUU6_VOICE_JA_16519.mp3",
+    "text": "何が起こった?",
+    "keyword": ["naniga"]
+  },
+  {
+    "fileName": "TIKYUU6_VOICE_JA_16642.mp3",
+    "text": "死んじまった!いい奴だったのに!",
+    "keyword": ["sinda", "dead"]
+  },
+  {
+    "fileName": "TIKYUU6_VOICE_JA_16688.mp3",
+    "text": "感謝する!恩人だ!",
+    "keyword": ["kansya", "thankyou"]
+  },
+  {
+    "fileName": "TIKYUU6_VOICE_JA_3665.mp3",
+    "text": "よし!お前が行け!",
+    "keyword": ["yougo"]
+  }
+]

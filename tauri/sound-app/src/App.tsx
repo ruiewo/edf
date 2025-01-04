@@ -1,39 +1,91 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import { invoke } from "@tauri-apps/api/core";
-import "./App.css";
+import { useState } from "react"
+import { invoke } from "@tauri-apps/api/core"
+import "./App.css"
+import { soundService } from "./resource"
 
 function App() {
-  const [greetMsg, setGreetMsg] = useState("");
-  const [name, setName] = useState("");
+  const [greetMsg, setGreetMsg] = useState("")
+  const [name, setName] = useState("")
+
+  const sounds = soundService.getSounds()
 
   async function greet() {
     // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    setGreetMsg(await invoke("greet", { name }));
+    setGreetMsg(await invoke("greet", { name }))
   }
 
   return (
     <main className="container">
-      <h1>Welcome to Tauri + React</h1>
+      <div className="ring">
+        <div className="cancel">
+          <span>✪</span>
+        </div>
+        <div className="menu-wrapper">
+          {new Array(8).fill(0).map((_, i) => {
+            const sound = sounds[i] || { fileName: "", text: i, keyword: [] }
 
-      <div className="row">
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo vite" alt="Vite logo" />
-        </a>
-        <a href="https://tauri.app" target="_blank">
-          <img src="/tauri.svg" className="logo tauri" alt="Tauri logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+            return (
+              <div
+                key={i}
+                className="menu"
+                data-index={i}
+                onClick={() => soundService.play(sound.fileName)}
+              >
+                <span>
+                  <a>{sound.text}</a>
+                </span>
+                {/* <span>{sound.text}</span> */}
+              </div>
+            )
+          })}
+        </div>
       </div>
-      <p>Click on the Tauri, Vite, and React logos to learn more.</p>
+
+      <div className="ui-wrapper">
+        <span className="button ctrl">★</span>
+        <ul className="tip ctrl">
+              
+          <li className="slice">
+            <span>✦asdf</span>
+          </li>
+              
+          <li className="slice">
+            <span>✿</span>
+          </li>
+              
+          <li className="slice">
+            <span>✵</span>
+          </li>
+              
+          <li className="slice">
+            <span>✪</span>
+          </li>
+              
+          <li className="slice">
+            <span>✪</span>
+          </li>
+        </ul>
+      </div>
+
+      <audio controls src="/TIKYUU6_VOICE.JA#16376.mp3"></audio>
+      <a href="/TIKYUU6_VOICE.JA#16376.mp3">16376</a>
+
+      {sounds.map((sound) => {
+        return (
+          <button
+            key={sound.fileName}
+            onClick={() => soundService.play(sound.fileName)}
+          >
+            {sound.text}
+          </button>
+        )
+      })}
 
       <form
         className="row"
         onSubmit={(e) => {
-          e.preventDefault();
-          greet();
+          e.preventDefault()
+          greet()
         }}
       >
         <input
@@ -45,7 +97,7 @@ function App() {
       </form>
       <p>{greetMsg}</p>
     </main>
-  );
+  )
 }
 
-export default App;
+export default App
