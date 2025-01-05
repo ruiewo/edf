@@ -1,8 +1,17 @@
 import { soundService } from "./resource"
 import "./App.css"
+import { useGamepad } from "./gamepad"
+import { Gamepad } from "./components/Gamepad"
 
-function App() {
+export function App() {
+  const gamepad = useGamepad()
   const sounds = soundService.getSounds()
+
+  if (gamepad) {
+    console.log(gamepad.id)
+    console.log(gamepad.buttons)
+    console.log(gamepad.axes)
+  }
 
   return (
     <main className="container">
@@ -29,8 +38,7 @@ function App() {
           })}
         </div>
       </div>
+      <Gamepad />
     </main>
   )
 }
-
-export default App
