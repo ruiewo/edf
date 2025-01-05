@@ -11,6 +11,16 @@
   border-radius: 50%;
 }
 
+.target {
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: red;
+}
+
 .menu-wrapper {
   position: absolute;
   top: 50%;
@@ -64,7 +74,8 @@
     );
     /* background-size: 15% 15%, 15% 15%, cover; */
 
-    &:hover {
+    &:hover,
+    &[data-active="true"] {
       background: radial-gradient(
         rgba(127, 127, 127, 0) 16%,
         #53722dcc 18%,

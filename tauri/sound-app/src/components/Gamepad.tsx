@@ -8,7 +8,6 @@ export const Gamepad = () => {
 
   const gamepadDisplay = Object.keys(gamepads).map((gamepadId) => {
     const gamepad = gamepads[gamepadId]
-    console.log(gamepadId)
     const buttons =
       gamepad.buttons &&
       gamepad.buttons.map((button, index) => (
